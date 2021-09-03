@@ -1,5 +1,9 @@
-import { Category } from '@models/Category'
-import { ICategoryRepository, ICreateCategoryDTO } from './ICategoriesRepository'
+import { Category } from '@modules/cars/models/Category'
+
+import {
+  ICategoryRepository,
+  ICreateCategoryDTO
+} from './ICategoriesRepository'
 
 export class CategoryRepository implements ICategoryRepository {
   private categories: Category[]

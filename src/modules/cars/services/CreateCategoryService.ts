@@ -1,4 +1,7 @@
-import { ICategoryRepository, ICreateCategoryDTO } from '@repositories/ICategoriesRepository'
+import {
+  ICategoryRepository,
+  ICreateCategoryDTO
+} from '@modules/cars/repositories/ICategoriesRepository'
 
 export class CreateCategoryService {
   constructor(private categoryRepository: ICategoryRepository) {}

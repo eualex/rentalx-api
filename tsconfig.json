@@ -5,7 +5,10 @@
     "experimentalDecorators": true,               
     "emitDecoratorMetadata": true,                
     "module": "commonjs",                            
-    "rootDir": "./src",                              
+    "rootDir": "./src",
+    "declaration": true,
+    "noEmit": true,
+    "isolatedModules": true,                              
     "typeRoots": [
       "./node_modules/@types",
       "./src/@types"                                  
@@ -13,20 +16,13 @@
     "allowJs": true,                              
     "outDir": "./dist",                               
     "removeComments": true,                      
-    "esModuleInterop": true,    
-    "noEmit": true,                    
+    "esModuleInterop": true,                    
     "forceConsistentCasingInFileNames": true,        
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@models/*": ["./src/models/*"],
-      "@views/*": ["./src/views/*"],
-      "@config/*": ["./src/config/*"],
-      "@utils/*": ["./src/utils/*"],
+      "@modules/*": ["./src/modules/*"],
       "@routes/*": ["./src/routes/*"],
-      "@repositories/*": ["./src/repositories/*"],
-      "@services/*": ["./src/services/*"]
     }                             
   }
 }
