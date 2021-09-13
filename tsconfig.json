@@ -19,10 +19,10 @@
     "esModuleInterop": true,                    
     "forceConsistentCasingInFileNames": true,        
     "skipLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@modules/*": ["./src/modules/*"],
-      "@routes/*": ["./src/routes/*"],
-    }                             
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@modules/*": ["./src/modules/*"],
+    //   "@routes/*": ["./src/routes/*"],
+    // }                             
   }
 }
