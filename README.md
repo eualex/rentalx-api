@@ -1,1 +1,1 @@
-# rentalx-api
+# rentx-api
