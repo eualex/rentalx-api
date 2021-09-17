@@ -7,26 +7,26 @@ import {
 } from '../ICategoriesRepository'
 
 export class CategoryRepository implements ICategoryRepository {
-  private repositories: Repository<Category>
+  private repository: Repository<Category>
 
   constructor() {
-    this.repositories = getRepository(Category)
+    this.repository = getRepository(Category)
   }
 
   async create({ description, name }: ICreateCategoryDTO): Promise<void> {
-    const category = this.repositories.create({ description, name })
+    const category = this.repository.create({ description, name })
 
-    await this.repositories.save(category)
+    await this.repository.save(category)
   }
 
   async list(): Promise<Category[]> {
-    const categories = await this.repositories.find()
+    const categories = await this.repository.find()
 
     return categories
   }
 
   async findByName(name: string): Promise<Category> {
-    const category = await this.repositories.findOne({ where: { name } })
+    const category = await this.repository.findOne({ where: { name } })
 
     return category
   }

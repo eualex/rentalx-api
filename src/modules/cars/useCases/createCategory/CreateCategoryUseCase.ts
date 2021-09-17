@@ -1,18 +1,24 @@
+import { inject, injectable } from 'tsyringe'
+
 import {
   ICategoryRepository,
   ICreateCategoryDTO
 } from '../../repositories/ICategoriesRepository'
 
+@injectable()
 export class CreateCategoryUseCase {
-  constructor(private categoryRepository: ICategoryRepository) {}
+  constructor(
+    @inject('CategoryRepository')
+    private categoryRepository: ICategoryRepository
+  ) {}
 
-  execute({ description, name }: ICreateCategoryDTO): void {
-    const categoryAlreadyExists = this.categoryRepository.findByName(name)
+  async execute({ description, name }: ICreateCategoryDTO): Promise<void> {
+    const categoryAlreadyExists = await this.categoryRepository.findByName(name)
 
     if (categoryAlreadyExists) {
       throw new Error('Category already exists!')
     }
 
-    this.categoryRepository.create({ name, description })
+    await this.categoryRepository.create({ name, description })
   }
 }
