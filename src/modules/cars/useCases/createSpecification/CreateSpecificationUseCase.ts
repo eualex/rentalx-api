@@ -1,10 +1,16 @@
+import { inject, injectable } from 'tsyringe'
+
 import {
   ICreateSpecificationDTO,
   ISpecificationsRepository
 } from '../../repositories/ISpecificationsRepository'
 
+@injectable()
 export class CreateSpecificationUseCase {
-  constructor(private specificationRepository: ISpecificationsRepository) {}
+  constructor(
+    @inject('SpecificationsRepository')
+    private specificationRepository: ISpecificationsRepository
+  ) {}
 
   execute({ name, description }: ICreateSpecificationDTO): void {
     const specificationAlreadyExists =
