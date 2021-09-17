@@ -12,7 +12,7 @@ interface IImportCategory {
 @injectable()
 export class ImportCategoryUseCase {
   constructor(
-    @inject('SpecificationsRepository')
+    @inject('CategoryRepository')
     private categoriesRepository: ICategoryRepository
   ) {}
 
@@ -46,12 +46,12 @@ export class ImportCategoryUseCase {
     const categories = await this.loadCategories(file)
 
     categories.map(async category => {
-      const categoryAlreadyExists = this.categoriesRepository.findByName(
+      const categoryAlreadyExists = await this.categoriesRepository.findByName(
         category.name
       )
 
       if (!categoryAlreadyExists) {
-        this.categoriesRepository.create(category)
+        await this.categoriesRepository.create(category)
       }
     })
   }
